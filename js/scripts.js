@@ -18,7 +18,7 @@ var countUp = function(countTo, countBy) {
     for (var i = countBy; i <= countTo; i += countBy) {
       outputArray.push(i);
     }
-  } 
+  }
   return outputArray;
 }
 
@@ -29,3 +29,17 @@ var checkNumber = function(number1, number2) {
     return false;
   }
 }
+
+$(document).ready(function() {
+  $("form#countUp").submit(function(event) {
+    var countTo = parseInt($("input#countTo").val());
+    var countBy = parseInt($("input#countBy").val());
+    var result = countUp(countTo, countBy);
+
+
+  $(".result").text(result);
+
+    $("#result").show();
+    event.preventDefault();
+  });
+});
